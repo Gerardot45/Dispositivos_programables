@@ -1,11 +1,11 @@
 MPLINK 5.09, LINKER
-Linker Map File - Created Sat Dec 12 20:33:00 2020
+Linker Map File - Created Sun Dec 13 20:49:30 2020
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
-                   .org_0       code   0x000000    program   0x000038
-                   .cinit    romdata   0x000038    program   0x000002
+                   .org_0       code   0x000000    program   0x000036
+                   .cinit    romdata   0x000036    program   0x000002
 .config_300000_BUILD/DEFAULT/PRODUCTION/MONITOR    romdata   0x300000    program   0x000001
 .config_300001_BUILD/DEFAULT/PRODUCTION/MONITOR    romdata   0x300001    program   0x000001
 .config_300002_BUILD/DEFAULT/PRODUCTION/MONITOR    romdata   0x300002    program   0x000001
@@ -24,28 +24,28 @@ Linker Map File - Created Sat Dec 12 20:33:00 2020
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000039      
+                            0x000000    0x000037      
                             0x300000    0x300003      
                             0x300005    0x300006      
                             0x300008    0x30000d      
-            70 out of 33048 program addresses used, program memory utilization is 0%
+            68 out of 33048 program addresses used, program memory utilization is 0%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-               IMPRIME_02   0x000032    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
-               IMPRIME_04   0x00002c    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
-                   INICIO   0x00001e    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
+               IMPRIME_02   0x000030    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
+               IMPRIME_04   0x00002a    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
+                   INICIO   0x00001c    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
 
 
 
                               Symbols - Sorted by Address
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   INICIO   0x00001e    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
-               IMPRIME_04   0x00002c    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
-               IMPRIME_02   0x000032    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
+                   INICIO   0x00001c    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
+               IMPRIME_04   0x00002a    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
+               IMPRIME_02   0x000030    program     static C:\Users\gerrr\MPLABXProjects\practica_4_opcional.X\monitorear_palabra_opcional.asm
 
 
