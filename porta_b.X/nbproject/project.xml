@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>porta_b</name>
+            <name>Practica1_puerto_a_b</name>
             <creation-uuid>33c41106-0280-4cd3-8850-9504f80b7f7a</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions/>

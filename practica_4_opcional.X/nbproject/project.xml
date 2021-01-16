@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>practica_4_opcional</name>
+            <name>Practica3_monitoreo_palabra_paralelo</name>
             <creation-uuid>c989f2eb-a83d-4ef4-843c-9ab935964fc0</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions/>

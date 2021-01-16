@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>HOLA-IPN</name>
+            <name>Practica4_HOLA-IPN</name>
             <creation-uuid>431413bc-c995-423c-a3ce-921c587fbcc1</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions/>
