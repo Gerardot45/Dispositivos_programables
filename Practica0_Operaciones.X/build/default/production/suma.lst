@@ -1,4 +1,4 @@
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE  1
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[203]: Found opcode in column 1. (MOVLW)
 00000C 0E8A           00031 MOVLW   0x8A
 Warning[203]: Found opcode in column 1. (movwf)
 00000E 6E1D           00032 movwf   Dat_3; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE  2
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Warning[203]: Found opcode in column 1. (XORWF)
 Warning[203]: Found opcode in column 1. (MOVWF)
 00003A 6E4F           00060 MOVWF   Xor ;Realiza la operación lógica AND entre W y Dat_1 y lo guarda en W, posteriormente mueve W al
                              registro And   
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE  3
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -125,7 +125,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00061         
 Warning[205]: Found directive in column 1. (END)
                       00062 END
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE  4
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  4
 
 
 SYMBOL TABLE
@@ -184,7 +184,7 @@ BOR                               00000000
 BRG16                             00000003
 BRGH                              00000002
 BSR                               00000FE0
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE  5
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  5
 
 
 SYMBOL TABLE
@@ -243,7 +243,7 @@ CM1                               00000001
 CM2                               00000002
 CMCON                             00000FB4
 CMIE                              00000006
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE  6
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  6
 
 
 SYMBOL TABLE
@@ -302,7 +302,7 @@ ECCP1DEL                          00000FB7
 ECCPAS0                           00000004
 ECCPAS1                           00000005
 ECCPAS2                           00000006
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE  7
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  7
 
 
 SYMBOL TABLE
@@ -361,7 +361,7 @@ GO_DONE                           00000001
 GO_NOT_DONE                       00000001
 HLVDCON                           00000FD2
 HLVDEN                            00000004
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE  8
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  8
 
 
 SYMBOL TABLE
@@ -420,7 +420,7 @@ IRCF1                             00000005
 IRCF2                             00000006
 IRVST                             00000005
 IVRST                             00000005
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE  9
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  9
 
 
 SYMBOL TABLE
@@ -479,7 +479,7 @@ LVV2                              00000002
 LVV3                              00000003
 N                                 00000004
 NOT_A                             00000005
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 10
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 10
 
 
 SYMBOL TABLE
@@ -538,7 +538,7 @@ PIDEE                             00000000
 PIDEF                             00000000
 PIE1                              00000F9D
 PIE2                              00000FA0
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 11
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 11
 
 
 SYMBOL TABLE
@@ -597,7 +597,7 @@ RB6                               00000006
 RB7                               00000007
 RBIE                              00000003
 RBIF                              00000000
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 12
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 12
 
 
 SYMBOL TABLE
@@ -656,7 +656,7 @@ SCS1                              00000001
 SE0                               00000005
 SEN                               00000000
 SENDB                             00000003
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 13
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 13
 
 
 SYMBOL TABLE
@@ -715,7 +715,7 @@ STKPTR4                           00000004
 STKUNF                            00000006
 SUSPND                            00000001
 SWDTE                             00000000
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 14
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 14
 
 
 SYMBOL TABLE
@@ -774,7 +774,7 @@ TMR1                              00000FCE
 TMR1CS                            00000001
 TMR1H                             00000FCF
 TMR1IE                            00000000
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 15
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 15
 
 
 SYMBOL TABLE
@@ -833,7 +833,7 @@ TRISD                             00000F95
 TRISD0                            00000000
 TRISD1                            00000001
 TRISD2                            00000002
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 16
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 16
 
 
 SYMBOL TABLE
@@ -892,7 +892,7 @@ UERRIE                            00000001
 UERRIF                            00000001
 UFRM                              00000F66
 UFRMH                             00000F67
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 17
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 17
 
 
 SYMBOL TABLE
@@ -951,7 +951,7 @@ _CONFIG4L                         00300006
 _CONFIG5H                         00300009
 _CONFIG5L                         00300008
 _CONFIG6H                         0030000B
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 18
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 18
 
 
 SYMBOL TABLE
@@ -1010,7 +1010,7 @@ _IDLOC0                           00200000
 _IDLOC1                           00200001
 _IDLOC2                           00200002
 _IDLOC3                           00200003
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 19
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 19
 
 
 SYMBOL TABLE
@@ -1069,7 +1069,7 @@ _WRT0_ON_6L                       000000FE
 _WRT1_OFF_6L                      000000FF
 _WRT1_ON_6L                       000000FD
 _WRT2_OFF_6L                      000000FF
-MPASM 5.87                          SUMA.ASM   1-16-2021  18:02:17         PAGE 20
+MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 20
 
 
 SYMBOL TABLE

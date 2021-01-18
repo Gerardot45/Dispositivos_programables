@@ -1,4 +1,4 @@
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE  1
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (LIST)
                       00039                 ;CONFIG6L DIR 30000AH           0F
                       00040                 CONFIG   WRT0=OFF               ;BLOQUES NO PROTEGIDOS CONTRA ESCRITURA
                       00041                 CONFIG   WRT1=OFF
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE  2
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -105,55 +105,53 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 000010 0E07           00081                 movlw 0x07 
 000012 6EB4           00082                 movwf CMCON                     ;desactiva el modulo comparador
                       00083         
-                      00084         
-                      00085 ;//-------------------------------------------
-                      00086 ; CUERPO DE PROGRAMA
-                      00087                 
-000014 0E0F           00088                 MOVLW       0x0f
-000016 6E92           00089                 MOVWF       TRISA
-                      00090                 
-000018 0E00           00091                 MOVLW       0x00
-00001A 6E93           00092                 MOVWF       TRISB
-00001C 6A81           00093                 CLRF        PORTB
-                      00094                 
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE  3
+                      00084 ;//-------------------------------------------
+                      00085 ; CUERPO DE PROGRAMA
+000014 0E0F           00086                 MOVLW       0x0f
+000016 6E92           00087                 MOVWF       TRISA
+                      00088                 ;MUEVE LA CONSTANTE "0F" AL "TRISA"
+000018 0E00           00089                 MOVLW       0x00
+00001A 6E93           00090                 MOVWF       TRISB
+00001C 6A81           00091                 CLRF        PORTB
+                      00092                 ;MUEVE LA CONSTANTE "00" AL "TRISB"
+Warning[207]: Found label after column 1. (PREG_0)
+00001E A080           00093         PREG_0  BTFSS       PORTA,0
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-Warning[207]: Found label after column 1. (PREG_0)
-00001E A080           00095         PREG_0  BTFSS       PORTA,0
-000020 D???           00096                 BRA         ENC_B2
-000022 D???           00097                 BRA         PREG_1
-                      00098                 
+000020 D???           00094                 BRA         ENC_B2
+000022 D???           00095                 BRA         PREG_1
+                      00096                 ;HACE LA COMPROBACION DEL PRIMER BIT
 Warning[207]: Found label after column 1. (PREG_1)
-000024 B280           00099         PREG_1  BTFSC       PORTA,1
-000026 D???           00100                 BRA         ENC_B2
-000028 D???           00101                 BRA         PREG_2
-                      00102                 
+000024 B280           00097         PREG_1  BTFSC       PORTA,1
+000026 D???           00098                 BRA         ENC_B2
+000028 D???           00099                 BRA         PREG_2
+                      00100                 ;HACE LA COMPROBACION DEL SEGUNDO BIT
 Warning[207]: Found label after column 1. (PREG_2)
-00002A A480           00103         PREG_2  BTFSS       PORTA,2
-00002C D???           00104                 BRA         ENC_B2
-00002E D???           00105                 BRA         PREG_3
-                      00106                 
+00002A A480           00101         PREG_2  BTFSS       PORTA,2
+00002C D???           00102                 BRA         ENC_B2
+00002E D???           00103                 BRA         PREG_3
+                      00104                 ;HACE LA COMPROBACION DEL TERCER BIT
 Warning[207]: Found label after column 1. (PREG_3)
-000030 A680           00107         PREG_3  BTFSS       PORTA,3
-000032 D???           00108                 BRA         ENC_B2
-000034 D???           00109                 BRA         ENC_B1
-                      00110                 
+000030 A680           00105         PREG_3  BTFSS       PORTA,3
+000032 D???           00106                 BRA         ENC_B2
+000034 D???           00107                 BRA         ENC_B1
+                      00108                 ;HACE LA COMPROBACION DEL CUARTO BIT
 Warning[207]: Found label after column 1. (ENC_B1)
-000036 0E02           00111         ENC_B1  MOVLW       0x02
-000038 6E81           00112                 MOVWF       PORTB
-00003A D???           00113                 BRA         PREG_0
-                      00114                 
+000036 0E02           00109         ENC_B1  MOVLW       0x02
+000038 6E81           00110                 MOVWF       PORTB
+00003A D???           00111                 BRA         PREG_0
+                      00112                 ;ENCIENDE EL SEGUNDO BIT DEL "PORTB"
 Warning[207]: Found label after column 1. (ENC_B2)
-00003C 0E04           00115         ENC_B2  MOVLW       0x04
-00003E 6E81           00116                 MOVWF       PORTB
-000040 D???           00117                 BRA         PREG_0
-                      00118                 
-                      00119                 END
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE  4
+00003C 0E04           00113         ENC_B2  MOVLW       0x04
+00003E 6E81           00114                 MOVWF       PORTB
+000040 D???           00115                 BRA         PREG_0
+                      00116                 ;ENCIENDE EL TERCER BIT DEL "PORTB"
+                      00117                 END
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE  4
 
 
 SYMBOL TABLE
@@ -212,7 +210,7 @@ BRG16                             00000003
 BRGH                              00000002
 BSR                               00000FE0
 BTOEE                             00000004
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE  5
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE  5
 
 
 SYMBOL TABLE
@@ -271,7 +269,7 @@ CM2                               00000002
 CMCON                             00000FB4
 CMIE                              00000006
 CMIF                              00000006
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE  6
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE  6
 
 
 SYMBOL TABLE
@@ -330,7 +328,7 @@ EEIP                              00000004
 EEPGD                             00000007
 ENC_B1                            00000036
 ENC_B2                            0000003C
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE  7
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE  7
 
 
 SYMBOL TABLE
@@ -389,7 +387,7 @@ HLVDL1                            00000001
 HLVDL2                            00000002
 HLVDL3                            00000003
 I2C_DAT                           00000005
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE  8
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE  8
 
 
 SYMBOL TABLE
@@ -448,7 +446,7 @@ LATA4                             00000004
 LATA5                             00000005
 LATA6                             00000006
 LATB                              00000F8A
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE  9
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE  9
 
 
 SYMBOL TABLE
@@ -507,7 +505,7 @@ NOT_RBPU                          00000007
 NOT_RI                            00000004
 NOT_T1SYNC                        00000002
 NOT_T3SYNC                        00000002
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 10
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 10
 
 
 SYMBOL TABLE
@@ -566,7 +564,7 @@ POR                               00000001
 PORTA                             00000F80
 PORTB                             00000F81
 PORTC                             00000F82
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 11
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 11
 
 
 SYMBOL TABLE
@@ -625,7 +623,7 @@ RC0                               00000000
 RC1                               00000001
 RC2                               00000002
 RC4                               00000004
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 12
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 12
 
 
 SYMBOL TABLE
@@ -684,7 +682,7 @@ SPBRG                             00000FAF
 SPBRGH                            00000FB0
 SPEN                              00000007
 SPP0                              00000000
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 13
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 13
 
 
 SYMBOL TABLE
@@ -743,7 +741,7 @@ T0CKI                             00000004
 T0CON                             00000FD5
 T0CS                              00000005
 T0IE                              00000005
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 14
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 14
 
 
 SYMBOL TABLE
@@ -802,7 +800,7 @@ TMR2                              00000FCC
 TMR2IE                            00000001
 TMR2IF                            00000001
 TMR2IP                            00000001
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 15
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 15
 
 
 SYMBOL TABLE
@@ -861,7 +859,7 @@ TRISD7                            00000007
 TRISE                             00000F96
 TRISE0                            00000000
 TRISE1                            00000001
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 16
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 16
 
 
 SYMBOL TABLE
@@ -920,7 +918,7 @@ UPUEN                             00000004
 URSTIE                            00000000
 URSTIF                            00000000
 USBEN                             00000003
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 17
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 17
 
 
 SYMBOL TABLE
@@ -979,7 +977,7 @@ _CP1_OFF_5L                       000000FF
 _CP1_ON_5L                        000000FD
 _CP2_OFF_5L                       000000FF
 _CP2_ON_5L                        000000FB
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 18
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 18
 
 
 SYMBOL TABLE
@@ -1038,7 +1036,7 @@ _IESO_ON_1H                       000000FF
 _LPT1OSC_OFF_3H                   000000FB
 _LPT1OSC_ON_3H                    000000FF
 _LVP_OFF_4L                       000000FB
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 19
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 19
 
 
 SYMBOL TABLE
@@ -1097,7 +1095,7 @@ _WRTC_OFF_6H                      000000FF
 _WRTC_ON_6H                       000000DF
 _WRTD_OFF_6H                      000000FF
 _WRTD_ON_6H                       0000007F
-MPASM 5.87            MONITOREAR_PALABRA.ASM   12-12-2020  17:48:01         PAGE 20
+MPASM 5.87            MONITOREAR_PALABRA.ASM   1-18-2021  14:32:54         PAGE 20
 
 
 SYMBOL TABLE

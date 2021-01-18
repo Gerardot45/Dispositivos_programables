@@ -1,4 +1,4 @@
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE  1
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (LIST)
                       00039                 ;CONFIG6L DIR 30000AH           0F
                       00040                 CONFIG   WRT0=OFF               ;BLOQUES NO PROTEGIDOS CONTRA ESCRITURA
                       00041                 CONFIG   WRT1=OFF
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE  2
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00092                 
 Warning[207]: Found label after column 1. (INICIO)
 00001C A280           00093         INICIO  btfss    PORTA,1 
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE  3
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -137,7 +137,7 @@ Warning[207]: Found label after column 1. (ALARMA)
 00002A 6E81           00103                     movwf   PORTB ;MUEVE LA CONSTANTE "0X40" A PORTB
 00002C D???           00104                     bra     INICIO ;REGRESA A "INICIO"
                       00105                     END
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE  4
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE  4
 
 
 SYMBOL TABLE
@@ -196,7 +196,7 @@ BOR                               00000000
 BRG16                             00000003
 BRGH                              00000002
 BSR                               00000FE0
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE  5
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE  5
 
 
 SYMBOL TABLE
@@ -255,7 +255,7 @@ CM1                               00000001
 CM2                               00000002
 CMCON                             00000FB4
 CMIE                              00000006
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE  6
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE  6
 
 
 SYMBOL TABLE
@@ -314,7 +314,7 @@ EEIF                              00000004
 EEIP                              00000004
 EEPGD                             00000007
 ENDP0                             00000003
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE  7
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE  7
 
 
 SYMBOL TABLE
@@ -373,7 +373,7 @@ HLVDL2                            00000002
 HLVDL3                            00000003
 I2C_DAT                           00000005
 I2C_READ                          00000002
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE  8
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE  8
 
 
 SYMBOL TABLE
@@ -432,7 +432,7 @@ LATA4                             00000004
 LATA5                             00000005
 LATA6                             00000006
 LATB                              00000F8A
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE  9
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE  9
 
 
 SYMBOL TABLE
@@ -491,7 +491,7 @@ NOT_RBPU                          00000007
 NOT_RI                            00000004
 NOT_T1SYNC                        00000002
 NOT_T3SYNC                        00000002
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 10
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 10
 
 
 SYMBOL TABLE
@@ -550,7 +550,7 @@ PLUSW2                            00000FDB
 POR                               00000001
 PORTA                             00000F80
 PORTB                             00000F81
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 11
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 11
 
 
 SYMBOL TABLE
@@ -609,7 +609,7 @@ RC4                               00000004
 RC5                               00000005
 RC6                               00000006
 RC7                               00000007
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 12
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 12
 
 
 SYMBOL TABLE
@@ -668,7 +668,7 @@ SPP0                              00000000
 SPP1                              00000001
 SPP2                              00000002
 SPP3                              00000003
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 13
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 13
 
 
 SYMBOL TABLE
@@ -727,7 +727,7 @@ T0IE                              00000005
 T0IF                              00000002
 T0IP                              00000002
 T0PS0                             00000000
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 14
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 14
 
 
 SYMBOL TABLE
@@ -786,7 +786,7 @@ TMR2IP                            00000001
 TMR2ON                            00000002
 TMR3                              00000FB2
 TMR3CS                            00000001
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 15
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 15
 
 
 SYMBOL TABLE
@@ -845,7 +845,7 @@ TRISE1                            00000001
 TRISE2                            00000002
 TRMT                              00000001
 TRNIE                             00000003
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 16
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 16
 
 
 SYMBOL TABLE
@@ -904,7 +904,7 @@ USBEN                             00000003
 USBIE                             00000005
 USBIF                             00000005
 USBIP                             00000005
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 17
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 17
 
 
 SYMBOL TABLE
@@ -963,7 +963,7 @@ _CP2_ON_5L                        000000FB
 _CP3_OFF_5L                       000000FF
 _CP3_ON_5L                        000000F7
 _CPB_OFF_5H                       000000FF
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 18
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 18
 
 
 SYMBOL TABLE
@@ -1022,7 +1022,7 @@ _LVP_OFF_4L                       000000FB
 _LVP_ON_4L                        000000FF
 _MCLRE_OFF_3H                     0000007F
 _MCLRE_ON_3H                      000000FF
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 19
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 19
 
 
 SYMBOL TABLE
@@ -1081,7 +1081,7 @@ _WRTD_ON_6H                       0000007F
 _XINST_OFF_4L                     000000BF
 _XINST_ON_4L                      000000FF
 __18F4550                         00000001
-MPASM 5.87                        ALARMA.ASM   12-10-2020  17:55:37         PAGE 20
+MPASM 5.87                        ALARMA.ASM   1-18-2021  14:27:17         PAGE 20
 
 
 

@@ -1,4 +1,4 @@
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE  1
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (LIST)
                       00039                 ;CONFIG6L DIR 30000AH           0F
                       00040                 CONFIG   WRT0=OFF               ;BLOQUES NO PROTEGIDOS CONTRA ESCRITURA
                       00041                 CONFIG   WRT1=OFF
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE  2
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00001A 6E93           00091                 movwf   TRISB ;MUEVE LO QUE HAY EN EL REGISTRO DE TRABAJO Y LO MANDA A TRISB (DEFINE SI 
                             EL PUERTO ES ENTRADA O SALIDA)
                       00092                 
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE  3
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -124,10 +124,10 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 
 Warning[207]: Found label after column 1. (INI)
 00001C 5080           00093         INI     movf    PORTA,0 ;MUEVE LO QUE HAY EN W HACÍA PORTA 
-00001E 6E81           00094                 movwf   PORTB ;mUEVE LO QUE HAY EN W HACÍA PORTB
+00001E 6E81           00094                 movwf   PORTB ;MUEVE LO QUE HAY EN W HACÍA PORTB
 000020 D???           00095                 bra     INI ; REGRESA A "INI"
                       00096                 END
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE  4
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE  4
 
 
 SYMBOL TABLE
@@ -186,7 +186,7 @@ BRG16                             00000003
 BRGH                              00000002
 BSR                               00000FE0
 BTOEE                             00000004
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE  5
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE  5
 
 
 SYMBOL TABLE
@@ -245,7 +245,7 @@ CM2                               00000002
 CMCON                             00000FB4
 CMIE                              00000006
 CMIF                              00000006
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE  6
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE  6
 
 
 SYMBOL TABLE
@@ -304,7 +304,7 @@ EEIP                              00000004
 EEPGD                             00000007
 ENDP0                             00000003
 ENDP1                             00000004
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE  7
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE  7
 
 
 SYMBOL TABLE
@@ -363,7 +363,7 @@ HLVDL3                            00000003
 I2C_DAT                           00000005
 I2C_READ                          00000002
 I2C_START                         00000003
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE  8
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE  8
 
 
 SYMBOL TABLE
@@ -422,7 +422,7 @@ LATA5                             00000005
 LATA6                             00000006
 LATB                              00000F8A
 LATB0                             00000000
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE  9
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE  9
 
 
 SYMBOL TABLE
@@ -481,7 +481,7 @@ NOT_RI                            00000004
 NOT_T1SYNC                        00000002
 NOT_T3SYNC                        00000002
 NOT_TO                            00000003
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 10
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 10
 
 
 SYMBOL TABLE
@@ -540,7 +540,7 @@ PORTA                             00000F80
 PORTB                             00000F81
 PORTC                             00000F82
 PORTD                             00000F83
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 11
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 11
 
 
 SYMBOL TABLE
@@ -599,7 +599,7 @@ RC6                               00000006
 RC7                               00000007
 RCEN                              00000003
 RCIDL                             00000006
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 12
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 12
 
 
 SYMBOL TABLE
@@ -658,7 +658,7 @@ SPP2                              00000002
 SPP3                              00000003
 SPP4                              00000004
 SPP5                              00000005
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 13
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 13
 
 
 SYMBOL TABLE
@@ -717,7 +717,7 @@ T0IP                              00000002
 T0PS0                             00000000
 T0PS1                             00000001
 T0PS2                             00000002
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 14
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 14
 
 
 SYMBOL TABLE
@@ -776,7 +776,7 @@ TMR3                              00000FB2
 TMR3CS                            00000001
 TMR3H                             00000FB3
 TMR3IE                            00000001
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 15
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 15
 
 
 SYMBOL TABLE
@@ -835,7 +835,7 @@ TRMT                              00000001
 TRNIE                             00000003
 TRNIF                             00000003
 TUN0                              00000000
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 16
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 16
 
 
 SYMBOL TABLE
@@ -894,7 +894,7 @@ USBIF                             00000005
 USBIP                             00000005
 USTAT                             00000F6C
 UTEYE                             00000007
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 17
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 17
 
 
 SYMBOL TABLE
@@ -953,7 +953,7 @@ _CP3_ON_5L                        000000F7
 _CPB_OFF_5H                       000000FF
 _CPB_ON_5H                        000000BF
 _CPD_OFF_5H                       000000FF
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 18
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 18
 
 
 SYMBOL TABLE
@@ -1012,7 +1012,7 @@ _MCLRE_OFF_3H                     0000007F
 _MCLRE_ON_3H                      000000FF
 _PBADEN_OFF_3H                    000000FD
 _PBADEN_ON_3H                     000000FF
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 19
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 19
 
 
 SYMBOL TABLE
@@ -1070,7 +1070,7 @@ _XINST_OFF_4L                     000000BF
 _XINST_ON_4L                      000000FF
 __18F4550                         00000001
 
-MPASM 5.87                       PORTA_B.ASM   12-10-2020  17:55:12         PAGE 20
+MPASM 5.87                       PORTA_B.ASM   1-18-2021  14:23:54         PAGE 20
 
 
 
