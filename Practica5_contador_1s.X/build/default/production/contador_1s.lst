@@ -1,4 +1,4 @@
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE  1
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (LIST)
                       00039                 ;CONFIG6L DIR 30000AH           0F
                       00040                 CONFIG   WRT0=OFF               ;BLOQUES NO PROTEGIDOS CONTRA ESCRITURA
                       00041                 CONFIG   WRT1=OFF
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE  2
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -113,41 +113,53 @@ Warning[207]: Found label after column 1. (R_1M)
   00000010            00088                 R_1M    EQU     0X10
 Warning[207]: Found label after column 1. (CONT)
   0000000F            00089                 CONT    EQU     0x0F
-                      00090                 
-000014 0E00           00091                 MOVLW   0x00
-000016 6E93           00092                 MOVWF   TRISB   ;PINES DE SALIDA EN EL PUERTO B
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE  3
+Warning[207]: Found label after column 1. (R2_1M)
+  0000000D            00090                 R2_1M   EQU     0x0D
+                      00091                 
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00093                 
-                      00094                 ;SE LIMPIAN LOS REGISTROS
-000018 6A0F           00095                 CLRF    CONT
-00001A 6A10           00096                 CLRF    R_1M
-                      00097                 
+000014 0E00           00092                 MOVLW   0x00
+000016 6E93           00093                 MOVWF   TRISB   ;PINES DE SALIDA EN EL PUERTO B
+                      00094                 
+                      00095                 ;SE LIMPIAN LOS REGISTROS
+000018 6A0F           00096                 CLRF    CONT
+00001A 6A10           00097                 CLRF    R_1M
+00001C 6A0D           00098                 CLRF    R2_1M
+                      00099                 
 Warning[207]: Found label after column 1. (INICIO)
-00001C 500F           00098         INICIO  MOVF    CONT,0                          
-00001E 6E81           00099                 MOVWF   PORTB   
-                      00100                 ;MUEVE LO QUE HAY EN CONTADOR A W Y DEL REGISTRO
-                      00101                 ;DE TRABAJO, LO MUEVE AL PORTB
-000020 EC?? F???      00102                 CALL    RET_1M ;LLAMADA A LA SUBRUTINA RET_1M
-000024 2A0F           00103                 INCF    CONT,1; SE INCREMENTA EL CONTADOR EN 1 Y 
-                      00104                 ; SE GUARDA EN EL MISMO
-000026 D???           00105                 BRA     INICIO
-                      00106                 
+00001E 500F           00100         INICIO  MOVF    CONT,0                          
+000020 6E81           00101                 MOVWF   PORTB   
+                      00102                 ;MUEVE LO QUE HAY EN CONTADOR A W Y DEL REGISTRO
+                      00103                 ;DE TRABAJO, LO MUEVE AL PORTB
+000022 EC?? F???      00104                 CALL    RET_1S ;LLAMADA A LA SUBRUTINA RET_1M
+000026 2A0F           00105                 INCF    CONT,1; SE INCREMENTA EL CONTADOR EN 1 Y 
+                      00106                 ; SE GUARDA EN EL MISMO
+000028 D???           00107                 BRA     INICIO
+                      00108                 
+Warning[207]: Found label after column 1. (RET_1S)
+Warning[202]: Argument out of range.  Least significant bits used.
+00002A 0EF2           00109         RET_1S  MOVLW   D'498'
+00002C 6E10           00110                 MOVWF   R_1M
+Warning[207]: Found label after column 1. (BUCLE)
+00002E 0000           00111         BUCLE   NOP     
+000030 2E10           00112                 DECFSZ  R_1M,1
+000032 D???           00113                 BRA     RET_1M
+000034 0012           00114                 RETURN  
 Warning[207]: Found label after column 1. (RET_1M)
 Warning[202]: Argument out of range.  Least significant bits used.
-000028 0E50           00107         RET_1M  MOVLW   D'498000'
-00002A 6E10           00108                 MOVWF   R_1M
-Warning[207]: Found label after column 1. (BUCLE)
-00002C 0000           00109         BUCLE   NOP     
-00002E 2E10           00110                 DECFSZ  R_1M,1
-000030 D???           00111                 BRA     BUCLE
-000032 0012           00112                 RETURN          
-                      00113                 END
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE  4
+000036 0EF2           00115         RET_1M  MOVLW   D'498'
+000038 6E0D           00116                 MOVWF   R2_1M
+Warning[207]: Found label after column 1. (BUCLE2)
+00003A 0000           00117         BUCLE2  NOP
+00003C 2E0D           00118                 DECFSZ  R2_1M,1
+00003E D???           00119                 BRA     BUCLE2
+000040 D???           00120                 BRA     BUCLE
+                      00121                 END
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE  4
 
 
 SYMBOL TABLE
@@ -206,7 +218,7 @@ BRG16                             00000003
 BRGH                              00000002
 BSR                               00000FE0
 BTOEE                             00000004
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE  5
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE  5
 
 
 SYMBOL TABLE
@@ -215,7 +227,8 @@ SYMBOL TABLE
 BTOEF                             00000004
 BTSEE                             00000007
 BTSEF                             00000007
-BUCLE                             0000002C
+BUCLE                             0000002E
+BUCLE2                            0000003A
 C                                 00000000
 C1INV                             00000004
 C1OUT                             00000006
@@ -264,13 +277,13 @@ CM0                               00000000
 CM1                               00000001
 CM2                               00000002
 CMCON                             00000FB4
-CMIE                              00000006
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE  6
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE  6
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+CMIE                              00000006
 CMIF                              00000006
 CMIP                              00000006
 CONT                              0000000F
@@ -323,13 +336,13 @@ EEDATA                            00000FA8
 EEIE                              00000004
 EEIF                              00000004
 EEIP                              00000004
-EEPGD                             00000007
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE  7
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE  7
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+EEPGD                             00000007
 ENDP0                             00000003
 ENDP1                             00000004
 ENDP2                             00000005
@@ -382,13 +395,13 @@ HLVDL0                            00000000
 HLVDL1                            00000001
 HLVDL2                            00000002
 HLVDL3                            00000003
-I2C_DAT                           00000005
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE  8
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE  8
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+I2C_DAT                           00000005
 I2C_READ                          00000002
 I2C_START                         00000003
 I2C_STOP                          00000004
@@ -398,7 +411,7 @@ IDLEN                             00000007
 INDF0                             00000FEF
 INDF1                             00000FE7
 INDF2                             00000FDF
-INICIO                            0000001C
+INICIO                            0000001E
 INT0                              00000000
 INT0E                             00000004
 INT0F                             00000001
@@ -441,13 +454,13 @@ LATA2                             00000002
 LATA3                             00000003
 LATA4                             00000004
 LATA5                             00000005
-LATA6                             00000006
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE  9
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE  9
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+LATA6                             00000006
 LATB                              00000F8A
 LATB0                             00000000
 LATB1                             00000001
@@ -500,13 +513,13 @@ NOT_PD                            00000002
 NOT_POR                           00000001
 NOT_RBPU                          00000007
 NOT_RI                            00000004
-NOT_T1SYNC                        00000002
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 10
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 10
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+NOT_T1SYNC                        00000002
 NOT_T3SYNC                        00000002
 NOT_TO                            00000003
 NOT_W                             00000002
@@ -559,13 +572,13 @@ PLUSW1                            00000FE3
 PLUSW2                            00000FDB
 POR                               00000001
 PORTA                             00000F80
-PORTB                             00000F81
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 11
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 11
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+PORTB                             00000F81
 PORTC                             00000F82
 PORTD                             00000F83
 PORTE                             00000F84
@@ -593,6 +606,7 @@ PSSAC1                            00000003
 PSSBD0                            00000000
 PSSBD1                            00000001
 R                                 00000002
+R2_1M                             0000000D
 RA0                               00000000
 RA1                               00000001
 RA2                               00000002
@@ -617,14 +631,14 @@ RC1                               00000001
 RC2                               00000002
 RC4                               00000004
 RC5                               00000005
-RC6                               00000006
-RC7                               00000007
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 12
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 12
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+RC6                               00000006
+RC7                               00000007
 RCEN                              00000003
 RCIDL                             00000006
 RCIE                              00000005
@@ -652,7 +666,8 @@ RE2                               00000002
 RE3                               00000003
 READ_WRITE                        00000002
 RESUME                            00000002
-RET_1M                            00000028
+RET_1M                            00000036
+RET_1S                            0000002A
 RI                                00000004
 RSEN                              00000001
 RX                                00000007
@@ -675,15 +690,15 @@ SOFIE                             00000006
 SOFIF                             00000006
 SPBRG                             00000FAF
 SPBRGH                            00000FB0
-SPEN                              00000007
-SPP0                              00000000
-SPP1                              00000001
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 13
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 13
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+SPEN                              00000007
+SPP0                              00000000
+SPP1                              00000001
 SPP2                              00000002
 SPP3                              00000003
 SPP4                              00000004
@@ -734,15 +749,15 @@ SYNC                              00000004
 T08BIT                            00000006
 T0CKI                             00000004
 T0CON                             00000FD5
-T0CS                              00000005
-T0IE                              00000005
-T0IF                              00000002
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 14
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 14
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
 T0IP                              00000002
 T0PS0                             00000000
 T0PS1                             00000001
@@ -793,15 +808,15 @@ TMR1L                             00000FCE
 TMR1ON                            00000000
 TMR2                              00000FCC
 TMR2IE                            00000001
-TMR2IF                            00000001
-TMR2IP                            00000001
-TMR2ON                            00000002
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 15
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 15
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+TMR2IF                            00000001
+TMR2IP                            00000001
+TMR2ON                            00000002
 TMR3                              00000FB2
 TMR3CS                            00000001
 TMR3H                             00000FB3
@@ -852,15 +867,15 @@ TRISD5                            00000005
 TRISD6                            00000006
 TRISD7                            00000007
 TRISE                             00000F96
-TRISE0                            00000000
-TRISE1                            00000001
-TRISE2                            00000002
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 16
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 16
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+TRISE0                            00000000
+TRISE1                            00000001
+TRISE2                            00000002
 TRMT                              00000001
 TRNIE                             00000003
 TRNIF                             00000003
@@ -911,15 +926,15 @@ UIR                               00000F68
 UOEMON                            00000006
 UPUEN                             00000004
 URSTIE                            00000000
-URSTIF                            00000000
-USBEN                             00000003
-USBIE                             00000005
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 17
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 17
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+URSTIF                            00000000
+USBEN                             00000003
+USBIE                             00000005
 USBIF                             00000005
 USBIP                             00000005
 USTAT                             00000F6C
@@ -970,15 +985,15 @@ _CP0_OFF_5L                       000000FF
 _CP0_ON_5L                        000000FE
 _CP1_OFF_5L                       000000FF
 _CP1_ON_5L                        000000FD
-_CP2_OFF_5L                       000000FF
-_CP2_ON_5L                        000000FB
-_CP3_OFF_5L                       000000FF
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 18
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 18
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+_CP2_OFF_5L                       000000FF
+_CP2_ON_5L                        000000FB
+_CP3_OFF_5L                       000000FF
 _CP3_ON_5L                        000000F7
 _CPB_OFF_5H                       000000FF
 _CPB_ON_5H                        000000BF
@@ -1029,15 +1044,15 @@ _IDLOC7                           00200007
 _IESO_OFF_1H                      0000007F
 _IESO_ON_1H                       000000FF
 _LPT1OSC_OFF_3H                   000000FB
-_LPT1OSC_ON_3H                    000000FF
-_LVP_OFF_4L                       000000FB
-_LVP_ON_4L                        000000FF
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 19
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 19
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+_LPT1OSC_ON_3H                    000000FF
+_LVP_OFF_4L                       000000FB
+_LVP_ON_4L                        000000FF
 _MCLRE_OFF_3H                     0000007F
 _MCLRE_ON_3H                      000000FF
 _PBADEN_OFF_3H                    000000FD
@@ -1088,20 +1103,20 @@ _WRTB_OFF_6H                      000000FF
 _WRTB_ON_6H                       000000BF
 _WRTC_OFF_6H                      000000FF
 _WRTC_ON_6H                       000000DF
-_WRTD_OFF_6H                      000000FF
-_WRTD_ON_6H                       0000007F
-_XINST_OFF_4L                     000000BF
-MPASM 5.87                   CONTADOR_1S.ASM   1-19-2021  14:21:41         PAGE 20
+MPASM 5.87                   CONTADOR_1S.ASM   1-21-2021  16:39:18         PAGE 20
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+_WRTD_OFF_6H                      000000FF
+_WRTD_ON_6H                       0000007F
+_XINST_OFF_4L                     000000BF
 _XINST_ON_4L                      000000FF
 __18F4550                         00000001
 
 Errors   :     0
-Warnings :     7 reported,     0 suppressed
+Warnings :    11 reported,     0 suppressed
 Messages :     0 reported,     0 suppressed
 
 

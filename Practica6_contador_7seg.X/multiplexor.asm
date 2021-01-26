@@ -1,6 +1,5 @@
 LIST p=18F4550 				;directive to define processor
 #include<P18F4550.INC> 	;processor specific variable definitions
- 
     	;CONFIG1L dir 300000h 		20
 		CONFIG	PLLDIV=1	 	; 
 		CONFIG	CPUDIV=OSC1_PLL2 ;CUANDO SE USA 	
@@ -60,17 +59,14 @@ LIST p=18F4550 				;directive to define processor
  
  	ENDC 
  
- 	org 0					; DIRECCION 0 DE LA MEMORIA
- 
+ 	org 0					; DIRECCION 0 DE LA MEMORIA 
 ;-------------------------------------------------------------	
-; CONFIGURACION DE PUERTOS
-	
+; CONFIGURACION DE PUERTOS	
     		clrf TRISA  			; 
 		clrf TRISB
  		clrf TRISC 			; 
     		clrf TRISD
     		clrf TRISE
-
 ;//------------------------------------------------------
 ; ahora viene la deshabilitación de modulos (pheriperals)
 ;*******************************************************
@@ -79,33 +75,106 @@ LIST p=18F4550 				;directive to define processor
  		movwf ADCON1 			; todas digitales
 
  		movlw 0x07 
- 		movwf CMCON 			;desactiva el modulo comparador
- 	
+ 		movwf CMCON 			;desactiva el modulo comparador 	
 ;//-------------------------------------------
 ; CUERPO DE PROGRAMA
-		
-		;AQUÍ SE GUARDAN LOS DATO DEL CONTADOR Y DEL RETARDO DE 1 MILISEGUNDO
-		R_1M	EQU	0X10
 		CONT	EQU	0x0F
-		R2_1M	EQU	0x0D
+		R_1M	EQU	0x10
+		R2_1M	EQU	0x11
 		
+		MOVLW	0x03
+		MOVWF	TRISA		
 		MOVLW	0x00
-		MOVWF	TRISB	;PINES DE SALIDA EN EL PUERTO B
+		MOVWF	TRISB		
+		BRA	PREG_0		
+	
+	;ESTA ES LA TABLA CON LOS
+	;VALORES DEL 1 AL 15
+	TABLA	ADDWF	PCL, 1
+		RETLW	0x3F ;0		
+		RETLW	0x06 ;1
+		RETLW	0x5B ;2
+		RETLW	0x4F ;3
+		RETLW	0x66 ;4
+		RETLW	0x6D ;5
+		RETLW	0x7D ;6
+		RETLW	0x07 ;7
+		RETLW	0xFF ;8
+		RETLW	0x6F ;9
+		RETLW	0x77 ;10
+		RETLW	0x7C ;11
+		RETLW	0x39 ;12
+		RETLW	0x5E ;13
+		RETLW	0x79 ;14
+		RETLW	0x71 ;15
 		
-		;SE LIMPIAN LOS REGISTROS
-		CLRF	CONT
-		CLRF	R_1M
-		CLRF	R2_1M
-		
-	INICIO	MOVF	CONT,0				
-		MOVWF	PORTB	
-		;MUEVE LO QUE HAY EN CONTADOR A W Y DEL REGISTRO
-		;DE TRABAJO, LO MUEVE AL PORTB
-		CALL	RET_1S ;LLAMADA A LA SUBRUTINA RET_1M
-		INCF	CONT,1; SE INCREMENTA EL CONTADOR EN 1 Y 
-		; SE GUARDA EN EL MISMO
-		BRA	INICIO
-		
+	PREG_0	MOVF	PORTA,0
+		SUBLW	0x00
+		BTFSS	STATUS, Z
+		BRA	PREG_1
+		BRA	CONT_DE			
+	PREG_1	MOVF	PORTA,0
+		SUBLW	0x01
+		BTFSS	STATUS,Z
+		BRA	PREG_2
+		BRA	CON_OCT
+	PREG_2	MOVF	PORTA,0
+		SUBLW	0x02
+		BTFSS	STATUS,Z
+		BRA	PREG_3
+		BRA	CON_HEX
+	PREG_3	MOVF	PORTA,0
+		SUBLW	0x03
+		BTFSS	STATUS,Z
+		BRA	PREG_0
+		BRA	RESET_P	
+	;-------------------------------------------------
+	;ESTE CÓDIGO HACE CONTEO DECIMAL
+	CONT_DE CLRF	CONT
+	INI_DEC	MOVF	CONT,0
+		CALL	TABLA
+		MOVWF	PORTB
+		CALL	RET_1S ;RETARDO DE 1 SEG   
+		MOVF	CONT,0
+		SUBLW	0x12
+		BTFSS	STATUS,Z
+		BRA	INC_DEC
+		BRA	PREG_0		
+	INC_DEC	INCF	CONT,1
+		INCF	CONT,1
+		BRA	INI_DEC
+	;-------------------------------------------------
+	
+	;-------------------------------------------------
+	;ESTE CÓDIGO HACE CONTEO OCTAL
+	CON_OCT CLRF	CONT
+	INI_OCT	MOVF	CONT,0
+		CALL	TABLA
+		MOVWF	PORTB
+		CALL	RET_1S ;RETARDO DE 1 SEG   
+		MOVF	CONT,0
+		SUBLW	0x0E
+		BTFSS	STATUS,Z
+		BRA	INC_OCT
+		BRA	PREG_0		
+	INC_OCT	INCF	CONT,1
+		INCF	CONT,1
+		BRA	INI_OCT
+	;-------------------------------------------------		
+	CON_HEX MOVLW	0x1E
+		MOVWF	CONT
+	SEGUIR	MOVF	CONT,0
+		CALL	TABLA
+		MOVWF	PORTB
+		CALL	RET_1S ;RETARDO DE 1 SEG		
+		TSTFSZ	CONT
+		BRA	DEC_HEX
+		BRA	PREG_0	
+	DEC_HEX	DECF	CONT,1
+		DECF	CONT,1	
+		BRA	SEGUIR
+	;-----------------------------------------------
+	;RETARDO DE 1 SEG
 	RET_1S	MOVLW	D'498'
 		MOVWF	R_1M
 	BUCLE	NOP	
@@ -118,4 +187,8 @@ LIST p=18F4550 				;directive to define processor
 		DECFSZ	R2_1M,1
 		BRA	BUCLE2
 		BRA	BUCLE
+	;-----------------------------------------------	
+	RESET_P	MOVLW	0x3F		
+		MOVWF	PORTB
+		BRA	PREG_0
 		END

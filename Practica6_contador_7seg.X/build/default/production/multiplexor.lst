@@ -1,4 +1,4 @@
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE  1
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -17,137 +17,257 @@ Warning[205]: Found directive in column 1. (LIST)
                       00008 ;==========================================================================
                       00009 
                       01765         LIST
-                      00003  
-                      00004         ;CONFIG1L dir 300000h           20
-                      00005                 CONFIG  PLLDIV=1                ; 
-                      00006                 CONFIG  CPUDIV=OSC1_PLL2 ;CUANDO SE USA         
-                      00007                 CONFIG  USBDIV=2
-                      00008 
-                      00009                 ;CONFIG1H dir 300001h      08
-                      00010                 CONFIG  FOSC=INTOSCIO_EC        ;OSCILADOR INTERNO, RA6 COMO PIN, USB USA OSC EC
-                      00011                 CONFIG  FCMEN=OFF       ;DESHABILITDO EL MONITOREO DEL RELOJ
-                      00012                 CONFIG  IESO=OFF
-                      00013                 ;CONFIG2L DIR 300002H           38
-                      00014                 CONFIG  PWRT=ON         ;PWRT HABILITADO
-                      00015                 CONFIG  BOR=OFF                 ;BROWN OUT RESET DESHABILITADO
-                      00016                 CONFIG BORV=3                   ;RESET AL MINIMO VOLTAJE NO UTILZADO EN ESTE CASO
-                      00017                 CONFIG  VREGEN=ON               ;REULADOR DE USB ENCENDIDO
-                      00018                 ;CONFIG2H DIR 300003H           1E
-                      00019                 CONFIG  WDT=OFF         ;WACH DOG DESHABILITADO
-                      00020                 CONFIG WDTPS=32768      ;TIMER DEL WATCHDOG 
-                      00021                 ;CONFIG3H DIR 300005H           81
-                      00022                 CONFIG  CCP2MX=ON               ;CCP2 MULTIPLEXADAS CON RC1     
-                      00023                 CONFIG  PBADEN=OFF      ;PUERTO B PINES DEL 0 AL 4 ENTRADAS DIGITALES
-                      00024                 CONFIG  LPT1OSC=OFF             ;TIMER1 CONFIURADO PARA OPERAR EN BAJA POTENCIA
-                      00025                 CONFIG  MCLRE=ON        ;MASTER CLEAR HABILITADO
-                      00026                 ;CONFIG4L DIR 300006H           81
-                      00027                 CONFIG  STVREN=ON               ;SI EL STACK SE LLENA CAUSE RESET               
-                      00028                 CONFIG  LVP=OFF                 ;PROGRAMACIÒN EN BAJO VOLTAJE APAGADO
-                      00029                 CONFIG  ICPRT=OFF               ;REGISTRO ICPORT DESHABILITADO
-                      00030                 CONFIG  XINST=OFF               ;SET DE EXTENCION DE INSTRUCCIONES Y DIRECCIONAMIENTO IN
+                      00003         ;CONFIG1L dir 300000h           20
+                      00004                 CONFIG  PLLDIV=1                ; 
+                      00005                 CONFIG  CPUDIV=OSC1_PLL2 ;CUANDO SE USA         
+                      00006                 CONFIG  USBDIV=2
+                      00007 
+                      00008                 ;CONFIG1H dir 300001h      08
+                      00009                 CONFIG  FOSC=INTOSCIO_EC        ;OSCILADOR INTERNO, RA6 COMO PIN, USB USA OSC EC
+                      00010                 CONFIG  FCMEN=OFF       ;DESHABILITDO EL MONITOREO DEL RELOJ
+                      00011                 CONFIG  IESO=OFF
+                      00012                 ;CONFIG2L DIR 300002H           38
+                      00013                 CONFIG  PWRT=ON         ;PWRT HABILITADO
+                      00014                 CONFIG  BOR=OFF                 ;BROWN OUT RESET DESHABILITADO
+                      00015                 CONFIG BORV=3                   ;RESET AL MINIMO VOLTAJE NO UTILZADO EN ESTE CASO
+                      00016                 CONFIG  VREGEN=ON               ;REULADOR DE USB ENCENDIDO
+                      00017                 ;CONFIG2H DIR 300003H           1E
+                      00018                 CONFIG  WDT=OFF         ;WACH DOG DESHABILITADO
+                      00019                 CONFIG WDTPS=32768      ;TIMER DEL WATCHDOG 
+                      00020                 ;CONFIG3H DIR 300005H           81
+                      00021                 CONFIG  CCP2MX=ON               ;CCP2 MULTIPLEXADAS CON RC1     
+                      00022                 CONFIG  PBADEN=OFF      ;PUERTO B PINES DEL 0 AL 4 ENTRADAS DIGITALES
+                      00023                 CONFIG  LPT1OSC=OFF             ;TIMER1 CONFIURADO PARA OPERAR EN BAJA POTENCIA
+                      00024                 CONFIG  MCLRE=ON        ;MASTER CLEAR HABILITADO
+                      00025                 ;CONFIG4L DIR 300006H           81
+                      00026                 CONFIG  STVREN=ON               ;SI EL STACK SE LLENA CAUSE RESET               
+                      00027                 CONFIG  LVP=OFF                 ;PROGRAMACIÒN EN BAJO VOLTAJE APAGADO
+                      00028                 CONFIG  ICPRT=OFF               ;REGISTRO ICPORT DESHABILITADO
+                      00029                 CONFIG  XINST=OFF               ;SET DE EXTENCION DE INSTRUCCIONES Y DIRECCIONAMIENTO IN
                             DEXADO DESHABILITADO
-                      00031                 ;CONFIG5L DIR 300008H           0F
-                      00032                 CONFIG  CP0=OFF                 ;LOS BLOQUES DEL CÒDIGO DE PROGRAMA
-                      00033                 CONFIG  CP1=OFF         ;NO ESTAN PROTEGIDOS
-                      00034                 CONFIG  CP2=OFF          
-                      00035                 CONFIG  CP3=OFF
-                      00036                 ;CONFIG5H DR 300009H            80
-                      00037                 CONFIG  CPB=ON                  ;SECTOR BOOT ESTA PROTEGIDO
-                      00038                 CONFIG  CPD=OFF                 ;EEPROM N PROTEGIDA
-                      00039                 ;CONFIG6L DIR 30000AH           0F
-                      00040                 CONFIG   WRT0=OFF               ;BLOQUES NO PROTEGIDOS CONTRA ESCRITURA
-                      00041                 CONFIG   WRT1=OFF
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE  2
+                      00030                 ;CONFIG5L DIR 300008H           0F
+                      00031                 CONFIG  CP0=OFF                 ;LOS BLOQUES DEL CÒDIGO DE PROGRAMA
+                      00032                 CONFIG  CP1=OFF         ;NO ESTAN PROTEGIDOS
+                      00033                 CONFIG  CP2=OFF          
+                      00034                 CONFIG  CP3=OFF
+                      00035                 ;CONFIG5H DR 300009H            80
+                      00036                 CONFIG  CPB=ON                  ;SECTOR BOOT ESTA PROTEGIDO
+                      00037                 CONFIG  CPD=OFF                 ;EEPROM N PROTEGIDA
+                      00038                 ;CONFIG6L DIR 30000AH           0F
+                      00039                 CONFIG   WRT0=OFF               ;BLOQUES NO PROTEGIDOS CONTRA ESCRITURA
+                      00040                 CONFIG   WRT1=OFF
+                      00041                 CONFIG   WRT2=OFF
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00042                 CONFIG   WRT2=OFF
-                      00043                 CONFIG   WRT3=OFF
-                      00044 
-                      00045                 ;CONFIG6H DIR 30000BH           A0
-                      00046                 CONFIG   WRTC=OFF               ;CONFIGURACION DE REGISTROS NO PROTEGIDO
-                      00047                 CONFIG   WRTB=ON                ;BLOQUE BOOTEBLE NO PROTEGIDO
-                      00048                 CONFIG   WRTD=OFF               ;EEPROMDE DATOS NO PROTGIDA
-                      00049 
-                      00050                 ;CONFIG7L DIR 30000CH           0F
-                      00051                 CONFIG   EBTR0=OFF              ;TABLAS DE LETURA NO PROTEGIDAS
-                      00052                 CONFIG   EBTR1=OFF
-                      00053                 CONFIG   EBTR2=OFF
-                      00054                 CONFIG   EBTR3=OFF
-                      00055 
-                      00056                 ;CONFIG7H DIR 30000DH           40
-                      00057                 CONFIG   EBTRB=OFF              ;TABLAS NO PROTEGIDAS
-                      00058 
-                      00059         CBLOCK 0x0                      ; PARA VARIABLES
-                      00060  
-                      00061         ENDC 
-                      00062  
-                      00063         org 0                                   ; DIRECCION 0 DE LA MEMORIA
-                      00064  
-                      00065 ;-------------------------------------------------------------  
-                      00066 ; CONFIGURACION DE PUERTOS
-                      00067         
-000000 6A92           00068                 clrf TRISA                      ; 
-000002 6A93           00069                 clrf TRISB
-000004 6A94           00070                 clrf TRISC                      ; 
-000006 6A95           00071                 clrf TRISD
-000008 6A96           00072                 clrf TRISE
-                      00073 
-                      00074 ;//------------------------------------------------------
-                      00075 ; ahora viene la deshabilitación de modulos (pheriperals)
-                      00076 ;*******************************************************
-00000A 6AC2           00077                 clrf ADCON0                     ; desactiva el CAD
-00000C 0E0F           00078                 movlw 0xf 
-00000E 6EC1           00079                 movwf ADCON1                    ; todas digitales
-                      00080 
-000010 0E07           00081                 movlw 0x07 
-000012 6EB4           00082                 movwf CMCON                     ;desactiva el modulo comparador
-                      00083         
-                      00084 ;//-------------------------------------------
-                      00085 ; CUERPO DE PROGRAMA
-                      00086                 
-                      00087                 ;AQUÍ SE GUARDAN LOS DATO DEL CONTADOR Y DEL RETARDO DE 1 MILISEGUNDO
-Warning[207]: Found label after column 1. (R_1M)
-  00000010            00088                 R_1M    EQU     0X10
+                      00042                 CONFIG   WRT3=OFF
+                      00043 
+                      00044                 ;CONFIG6H DIR 30000BH           A0
+                      00045                 CONFIG   WRTC=OFF               ;CONFIGURACION DE REGISTROS NO PROTEGIDO
+                      00046                 CONFIG   WRTB=ON                ;BLOQUE BOOTEBLE NO PROTEGIDO
+                      00047                 CONFIG   WRTD=OFF               ;EEPROMDE DATOS NO PROTGIDA
+                      00048 
+                      00049                 ;CONFIG7L DIR 30000CH           0F
+                      00050                 CONFIG   EBTR0=OFF              ;TABLAS DE LETURA NO PROTEGIDAS
+                      00051                 CONFIG   EBTR1=OFF
+                      00052                 CONFIG   EBTR2=OFF
+                      00053                 CONFIG   EBTR3=OFF
+                      00054 
+                      00055                 ;CONFIG7H DIR 30000DH           40
+                      00056                 CONFIG   EBTRB=OFF              ;TABLAS NO PROTEGIDAS
+                      00057 
+                      00058         CBLOCK 0x0                      ; PARA VARIABLES
+                      00059  
+                      00060         ENDC 
+                      00061  
+                      00062         org 0                                   ; DIRECCION 0 DE LA MEMORIA 
+                      00063 ;-------------------------------------------------------------  
+                      00064 ; CONFIGURACION DE PUERTOS      
+000000 6A92           00065                 clrf TRISA                      ; 
+000002 6A93           00066                 clrf TRISB
+000004 6A94           00067                 clrf TRISC                      ; 
+000006 6A95           00068                 clrf TRISD
+000008 6A96           00069                 clrf TRISE
+                      00070 ;//------------------------------------------------------
+                      00071 ; ahora viene la deshabilitación de modulos (pheriperals)
+                      00072 ;*******************************************************
+00000A 6AC2           00073                 clrf ADCON0                     ; desactiva el CAD
+00000C 0E0F           00074                 movlw 0xf 
+00000E 6EC1           00075                 movwf ADCON1                    ; todas digitales
+                      00076 
+000010 0E07           00077                 movlw 0x07 
+000012 6EB4           00078                 movwf CMCON                     ;desactiva el modulo comparador         
+                      00079 ;//-------------------------------------------
+                      00080 ; CUERPO DE PROGRAMA
 Warning[207]: Found label after column 1. (CONT)
-  0000000F            00089                 CONT    EQU     0x0F
-                      00090                 
-000014 0E00           00091                 MOVLW   0x00
-000016 6E93           00092                 MOVWF   TRISB   ;PINES DE SALIDA EN EL PUERTO B
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE  3
+  0000000F            00081                 CONT    EQU     0x0F
+Warning[207]: Found label after column 1. (R_1M)
+  00000010            00082                 R_1M    EQU     0x10
+Warning[207]: Found label after column 1. (R2_1M)
+  00000011            00083                 R2_1M   EQU     0x11
+                      00084                 
+000014 0E03           00085                 MOVLW   0x03
+000016 6E92           00086                 MOVWF   TRISA           
+000018 0E00           00087                 MOVLW   0x00
+00001A 6E93           00088                 MOVWF   TRISB           
+00001C D???           00089                 BRA     PREG_0          
+                      00090         
+                      00091         ;ESTA ES LA TABLA CON LOS
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00093                 
-                      00094                 ;SE LIMPIAN LOS REGISTROS
-000018 6A0F           00095                 CLRF    CONT
-00001A 6A10           00096                 CLRF    R_1M
-                      00097                 
-Warning[207]: Found label after column 1. (INICIO)
-00001C 500F           00098         INICIO  MOVF    CONT,0                          
-00001E 6E81           00099                 MOVWF   PORTB   
-                      00100                 ;MUEVE LO QUE HAY EN CONTADOR A W Y DEL REGISTRO
-                      00101                 ;DE TRABAJO, LO MUEVE AL PORTB
-000020 EC?? F???      00102                 CALL    RET_1M ;LLAMADA A LA SUBRUTINA RET_1M
-000024 2A0F           00103                 INCF    CONT,1; SE INCREMENTA EL CONTADOR EN 1 Y 
-                      00104                 ; SE GUARDA EN EL MISMO
-000026 D???           00105                 BRA     INICIO
-                      00106                 
+                      00092         ;VALORES DEL 1 AL 15
+Warning[207]: Found label after column 1. (TABLA)
+00001E 26F9           00093         TABLA   ADDWF   PCL, 1
+000020 0C3F           00094                 RETLW   0x3F ;0         
+000022 0C06           00095                 RETLW   0x06 ;1
+000024 0C5B           00096                 RETLW   0x5B ;2
+000026 0C4F           00097                 RETLW   0x4F ;3
+000028 0C66           00098                 RETLW   0x66 ;4
+00002A 0C6D           00099                 RETLW   0x6D ;5
+00002C 0C7D           00100                 RETLW   0x7D ;6
+00002E 0C07           00101                 RETLW   0x07 ;7
+000030 0CFF           00102                 RETLW   0xFF ;8
+000032 0C6F           00103                 RETLW   0x6F ;9
+000034 0C77           00104                 RETLW   0x77 ;10
+000036 0C7C           00105                 RETLW   0x7C ;11
+000038 0C39           00106                 RETLW   0x39 ;12
+00003A 0C5E           00107                 RETLW   0x5E ;13
+00003C 0C79           00108                 RETLW   0x79 ;14
+00003E 0C71           00109                 RETLW   0x71 ;15
+                      00110                 
+Warning[207]: Found label after column 1. (PREG_0)
+000040 5080           00111         PREG_0  MOVF    PORTA,0
+000042 0800           00112                 SUBLW   0x00
+000044 A4D8           00113                 BTFSS   STATUS, Z
+000046 D???           00114                 BRA     PREG_1
+000048 D???           00115                 BRA     CONT_DE                 
+Warning[207]: Found label after column 1. (PREG_1)
+00004A 5080           00116         PREG_1  MOVF    PORTA,0
+00004C 0801           00117                 SUBLW   0x01
+00004E A4D8           00118                 BTFSS   STATUS,Z
+000050 D???           00119                 BRA     PREG_2
+000052 D???           00120                 BRA     CON_OCT
+Warning[207]: Found label after column 1. (PREG_2)
+000054 5080           00121         PREG_2  MOVF    PORTA,0
+000056 0802           00122                 SUBLW   0x02
+000058 A4D8           00123                 BTFSS   STATUS,Z
+00005A D???           00124                 BRA     PREG_3
+00005C D???           00125                 BRA     CON_HEX
+Warning[207]: Found label after column 1. (PREG_3)
+00005E 5080           00126         PREG_3  MOVF    PORTA,0
+000060 0803           00127                 SUBLW   0x03
+000062 A4D8           00128                 BTFSS   STATUS,Z
+000064 D???           00129                 BRA     PREG_0
+000066 D???           00130                 BRA     RESET_P
+                      00131         
+                      00132         ;-------------------------------------------------
+                      00133         ;ESTE CÓDIGO HACE CONTEO DECIMAL
+Warning[207]: Found label after column 1. (CONT_DE)
+000068 6A0F           00134         CONT_DE CLRF    CONT
+Warning[207]: Found label after column 1. (INI_DEC)
+00006A 500F           00135         INI_DEC MOVF    CONT,0
+00006C EC?? F???      00136                 CALL    TABLA
+000070 6E81           00137                 MOVWF   PORTB
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000072 EC?? F???      00138                 CALL    RET_1S ;RETARDO DE 1 SEG   
+000076 500F           00139                 MOVF    CONT,0
+000078 0812           00140                 SUBLW   0x12
+00007A A4D8           00141                 BTFSS   STATUS,Z
+00007C D???           00142                 BRA     INC_DEC
+00007E D???           00143                 BRA     PREG_0
+                      00144                 
+Warning[207]: Found label after column 1. (INC_DEC)
+000080 2A0F           00145         INC_DEC INCF    CONT,1
+000082 2A0F           00146                 INCF    CONT,1
+000084 D???           00147                 BRA     INI_DEC
+                      00148         ;-------------------------------------------------
+                      00149                 
+                      00150         
+                      00151         
+                      00152         ;-------------------------------------------------
+                      00153         ;ESTE CÓDIGO HACE CONTEO OCTAL
+Warning[207]: Found label after column 1. (CON_OCT)
+000086 6A0F           00154         CON_OCT CLRF    CONT
+Warning[207]: Found label after column 1. (INI_OCT)
+000088 500F           00155         INI_OCT MOVF    CONT,0
+00008A EC?? F???      00156                 CALL    TABLA
+00008E 6E81           00157                 MOVWF   PORTB
+000090 EC?? F???      00158                 CALL    RET_1S ;RETARDO DE 1 SEG   
+000094 500F           00159                 MOVF    CONT,0
+000096 080E           00160                 SUBLW   0x0E
+000098 A4D8           00161                 BTFSS   STATUS,Z
+00009A D???           00162                 BRA     INC_OCT
+00009C D???           00163                 BRA     PREG_0
+                      00164                 
+Warning[207]: Found label after column 1. (INC_OCT)
+00009E 2A0F           00165         INC_OCT INCF    CONT,1
+0000A0 2A0F           00166                 INCF    CONT,1
+0000A2 D???           00167                 BRA     INI_OCT
+                      00168         ;-------------------------------------------------
+                      00169         
+                      00170         
+Warning[207]: Found label after column 1. (CON_HEX)
+0000A4 0E1E           00171         CON_HEX MOVLW   0x1E
+0000A6 6E0F           00172                 MOVWF   CONT
+Warning[207]: Found label after column 1. (SEGUIR)
+0000A8 500F           00173         SEGUIR  MOVF    CONT,0
+0000AA EC?? F???      00174                 CALL    TABLA
+0000AE 6E81           00175                 MOVWF   PORTB
+0000B0 EC?? F???      00176                 CALL    RET_1S ;RETARDO DE 1 SEG                
+0000B4 660F           00177                 TSTFSZ  CONT
+0000B6 D???           00178                 BRA     DEC_HEX
+0000B8 D???           00179                 BRA     PREG_0
+                      00180         
+Warning[207]: Found label after column 1. (DEC_HEX)
+0000BA 060F           00181         DEC_HEX DECF    CONT,1
+0000BC 060F           00182                 DECF    CONT,1  
+0000BE D???           00183                 BRA     SEGUIR
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00184         ;-----------------------------------------------
+                      00185         ;RETARDO DE 1 SEG
+Warning[207]: Found label after column 1. (RET_1S)
+Warning[202]: Argument out of range.  Least significant bits used.
+0000C0 0EF2           00186         RET_1S  MOVLW   D'498'
+0000C2 6E10           00187                 MOVWF   R_1M
+Warning[207]: Found label after column 1. (BUCLE)
+0000C4 0000           00188         BUCLE   NOP     
+0000C6 2E10           00189                 DECFSZ  R_1M,1
+0000C8 D???           00190                 BRA     RET_1M
+0000CA 0012           00191                 RETURN  
 Warning[207]: Found label after column 1. (RET_1M)
 Warning[202]: Argument out of range.  Least significant bits used.
-000028 0EF2           00107         RET_1M  MOVLW   D'498'
-00002A 6E10           00108                 MOVWF   R_1M
-Warning[207]: Found label after column 1. (BUCLE)
-00002C 0000           00109         BUCLE   NOP     
-00002E 2E10           00110                 DECFSZ  R_1M,1
-000030 D???           00111                 BRA     BUCLE
-000032 0012           00112                 RETURN          
-                      00113                 END
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE  4
+0000CC 0EF2           00192         RET_1M  MOVLW   D'498'
+0000CE 6E11           00193                 MOVWF   R2_1M
+Warning[207]: Found label after column 1. (BUCLE2)
+0000D0 0000           00194         BUCLE2  NOP
+0000D2 2E11           00195                 DECFSZ  R2_1M,1
+0000D4 D???           00196                 BRA     BUCLE2
+0000D6 D???           00197                 BRA     BUCLE
+                      00198         ;-----------------------------------------------
+                      00199         
+Warning[207]: Found label after column 1. (RESET_P)
+0000D8 0E3F           00200         RESET_P MOVLW   0x3F            
+0000DA 6E81           00201                 MOVWF   PORTB
+0000DC D???           00202                 BRA     PREG_0
+                      00203                 END
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE  6
 
 
 SYMBOL TABLE
@@ -206,7 +326,7 @@ BRG16                             00000003
 BRGH                              00000002
 BSR                               00000FE0
 BTOEE                             00000004
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE  5
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE  7
 
 
 SYMBOL TABLE
@@ -215,7 +335,8 @@ SYMBOL TABLE
 BTOEF                             00000004
 BTSEE                             00000007
 BTSEF                             00000007
-BUCLE                             0000002C
+BUCLE                             000000C4
+BUCLE2                            000000D0
 C                                 00000000
 C1INV                             00000004
 C1OUT                             00000006
@@ -264,16 +385,19 @@ CM0                               00000000
 CM1                               00000001
 CM2                               00000002
 CMCON                             00000FB4
-CMIE                              00000006
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE  6
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE  8
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+CMIE                              00000006
 CMIF                              00000006
 CMIP                              00000006
 CONT                              0000000F
+CONT_DE                           00000068
+CON_HEX                           000000A4
+CON_OCT                           00000086
 CRC16EE                           00000002
 CRC16EF                           00000002
 CRC5EE                            00000001
@@ -303,6 +427,7 @@ DDRB                              TRISB
 DDRC                              TRISC
 DDRD                              TRISD
 DDRE                              TRISE
+DEC_HEX                           000000BA
 DFN8EE                            00000003
 DFN8EF                            00000003
 DIR                               00000002
@@ -319,17 +444,17 @@ ECCPASE                           00000007
 EEADR                             00000FA9
 EECON1                            00000FA6
 EECON2                            00000FA7
-EEDATA                            00000FA8
-EEIE                              00000004
-EEIF                              00000004
-EEIP                              00000004
-EEPGD                             00000007
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE  7
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE  9
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+EEDATA                            00000FA8
+EEIE                              00000004
+EEIF                              00000004
+EEIP                              00000004
+EEPGD                             00000007
 ENDP0                             00000003
 ENDP1                             00000004
 ENDP2                             00000005
@@ -378,27 +503,30 @@ HLVDIE                            00000002
 HLVDIF                            00000002
 HLVDIN                            00000005
 HLVDIP                            00000002
-HLVDL0                            00000000
-HLVDL1                            00000001
-HLVDL2                            00000002
-HLVDL3                            00000003
-I2C_DAT                           00000005
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE  8
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 10
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+HLVDL0                            00000000
+HLVDL1                            00000001
+HLVDL2                            00000002
+HLVDL3                            00000003
+I2C_DAT                           00000005
 I2C_READ                          00000002
 I2C_START                         00000003
 I2C_STOP                          00000004
 IDLEIE                            00000004
 IDLEIF                            00000004
 IDLEN                             00000007
+INC_DEC                           00000080
+INC_OCT                           0000009E
 INDF0                             00000FEF
 INDF1                             00000FE7
 INDF2                             00000FDF
-INICIO                            0000001C
+INI_DEC                           0000006A
+INI_OCT                           00000088
 INT0                              00000000
 INT0E                             00000004
 INT0F                             00000001
@@ -434,6 +562,12 @@ IRCF1                             00000005
 IRCF2                             00000006
 IRVST                             00000005
 IVRST                             00000005
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 LATA                              00000F89
 LATA0                             00000000
 LATA1                             00000001
@@ -442,12 +576,6 @@ LATA3                             00000003
 LATA4                             00000004
 LATA5                             00000005
 LATA6                             00000006
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE  9
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 LATB                              00000F8A
 LATB0                             00000000
 LATB1                             00000001
@@ -493,6 +621,12 @@ LVV3                              00000003
 N                                 00000004
 NOT_A                             00000005
 NOT_ADDRESS                       00000005
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 12
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 NOT_BOR                           00000000
 NOT_DONE                          00000001
 NOT_IPEN                          00000007
@@ -501,12 +635,6 @@ NOT_POR                           00000001
 NOT_RBPU                          00000007
 NOT_RI                            00000004
 NOT_T1SYNC                        00000002
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 10
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 NOT_T3SYNC                        00000002
 NOT_TO                            00000003
 NOT_W                             00000002
@@ -552,6 +680,12 @@ PIDEF                             00000000
 PIE1                              00000F9D
 PIE2                              00000FA0
 PIR1                              00000F9E
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 PIR2                              00000FA1
 PKTDIS                            00000004
 PLUSW0                            00000FEB
@@ -560,12 +694,6 @@ PLUSW2                            00000FDB
 POR                               00000001
 PORTA                             00000F80
 PORTB                             00000F81
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 11
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 PORTC                             00000F82
 PORTD                             00000F83
 PORTE                             00000F84
@@ -580,6 +708,10 @@ PPB1                              00000001
 PPBI                              00000001
 PPBRST                            00000006
 PR2                               00000FCB
+PREG_0                            00000040
+PREG_1                            0000004A
+PREG_2                            00000054
+PREG_3                            0000005E
 PREINC0                           00000FEC
 PREINC1                           00000FE4
 PREINC2                           00000FDC
@@ -593,6 +725,7 @@ PSSAC1                            00000003
 PSSBD0                            00000000
 PSSBD1                            00000001
 R                                 00000002
+R2_1M                             00000011
 RA0                               00000000
 RA1                               00000001
 RA2                               00000002
@@ -606,6 +739,12 @@ RB2                               00000002
 RB3                               00000003
 RB4                               00000004
 RB5                               00000005
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 RB6                               00000006
 RB7                               00000007
 RBIE                              00000003
@@ -619,12 +758,6 @@ RC4                               00000004
 RC5                               00000005
 RC6                               00000006
 RC7                               00000007
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 12
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 RCEN                              00000003
 RCIDL                             00000006
 RCIE                              00000005
@@ -651,8 +784,10 @@ RE1                               00000001
 RE2                               00000002
 RE3                               00000003
 READ_WRITE                        00000002
+RESET_P                           000000D8
 RESUME                            00000002
-RET_1M                            00000028
+RET_1M                            000000CC
+RET_1S                            000000C0
 RI                                00000004
 RSEN                              00000001
 RX                                00000007
@@ -663,11 +798,18 @@ R_1M                              00000010
 R_NOT_W                           00000002
 R_W                               00000002
 S                                 00000003
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 SBOREN                            00000006
 SCKP                              00000004
 SCS0                              00000000
 SCS1                              00000001
 SE0                               00000005
+SEGUIR                            000000A8
 SEN                               00000000
 SENDB                             00000003
 SMP                               00000007
@@ -678,12 +820,6 @@ SPBRGH                            00000FB0
 SPEN                              00000007
 SPP0                              00000000
 SPP1                              00000001
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 13
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 SPP2                              00000002
 SPP3                              00000003
 SPP4                              00000004
@@ -721,6 +857,12 @@ STATUS                            00000FD8
 STKFUL                            00000007
 STKOVF                            00000007
 STKPTR                            00000FFC
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 STKPTR0                           00000000
 STKPTR1                           00000001
 STKPTR2                           00000002
@@ -737,12 +879,6 @@ T0CON                             00000FD5
 T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 14
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 T0IP                              00000002
 T0PS0                             00000000
 T0PS1                             00000001
@@ -771,6 +907,7 @@ T3CKPS1                           00000005
 T3CON                             00000FB1
 T3NSYNC                           00000002
 T3SYNC                            00000002
+TABLA                             0000001E
 TABLAT                            00000FF5
 TBLPTR                            00000FF6
 TBLPTRH                           00000FF7
@@ -779,6 +916,12 @@ TBLPTRU                           00000FF8
 TMR0                              00000FD6
 TMR0H                             00000FD7
 TMR0IE                            00000005
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TMR0IF                            00000002
 TMR0IP                            00000002
 TMR0L                             00000FD6
@@ -796,12 +939,6 @@ TMR2IE                            00000001
 TMR2IF                            00000001
 TMR2IP                            00000001
 TMR2ON                            00000002
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 15
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TMR3                              00000FB2
 TMR3CS                            00000001
 TMR3H                             00000FB3
@@ -838,6 +975,12 @@ TRISB6                            00000006
 TRISB7                            00000007
 TRISC                             00000F94
 TRISC0                            00000000
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TRISC1                            00000001
 TRISC2                            00000002
 TRISC6                            00000006
@@ -855,12 +998,6 @@ TRISE                             00000F96
 TRISE0                            00000000
 TRISE1                            00000001
 TRISE2                            00000002
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 16
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TRMT                              00000001
 TRNIE                             00000003
 TRNIF                             00000003
@@ -897,6 +1034,12 @@ UEP2                              00000F72
 UEP3                              00000F73
 UEP4                              00000F74
 UEP5                              00000F75
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 19
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 UEP6                              00000F76
 UEP7                              00000F77
 UEP8                              00000F78
@@ -914,12 +1057,6 @@ URSTIE                            00000000
 URSTIF                            00000000
 USBEN                             00000003
 USBIE                             00000005
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 17
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 USBIF                             00000005
 USBIP                             00000005
 USTAT                             00000F6C
@@ -956,6 +1093,12 @@ _CCP2MX_OFF_3H                    000000FE
 _CCP2MX_ON_3H                     000000FF
 _CONFIG1H                         00300001
 _CONFIG1L                         00300000
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 20
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _CONFIG2H                         00300003
 _CONFIG2L                         00300002
 _CONFIG3H                         00300005
@@ -973,12 +1116,6 @@ _CP1_ON_5L                        000000FD
 _CP2_OFF_5L                       000000FF
 _CP2_ON_5L                        000000FB
 _CP3_OFF_5L                       000000FF
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 18
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _CP3_ON_5L                        000000F7
 _CPB_OFF_5H                       000000FF
 _CPB_ON_5H                        000000BF
@@ -1015,6 +1152,12 @@ _FOSC_INTOSC_EC_1H                000000F9
 _FOSC_INTOSC_HS_1H                000000FB
 _FOSC_INTOSC_XT_1H                000000FA
 _FOSC_XTPLL_XT_1H                 000000F2
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 21
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _FOSC_XT_XT_1H                    000000F0
 _ICPRT_OFF_4L                     000000DF
 _ICPRT_ON_4L                      000000FF
@@ -1032,12 +1175,6 @@ _LPT1OSC_OFF_3H                   000000FB
 _LPT1OSC_ON_3H                    000000FF
 _LVP_OFF_4L                       000000FB
 _LVP_ON_4L                        000000FF
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 19
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _MCLRE_OFF_3H                     0000007F
 _MCLRE_ON_3H                      000000FF
 _PBADEN_OFF_3H                    000000FD
@@ -1074,6 +1211,12 @@ _WDTPS_512_2H                     000000F3
 _WDTPS_64_2H                      000000ED
 _WDTPS_8192_2H                    000000FB
 _WDTPS_8_2H                       000000E7
+MPASM 5.87                   MULTIPLEXOR.ASM   1-25-2021  0:44:20         PAGE 22
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _WDT_OFF_2H                       000000FE
 _WDT_ON_2H                        000000FF
 _WRT0_OFF_6L                      000000FF
@@ -1091,17 +1234,11 @@ _WRTC_ON_6H                       000000DF
 _WRTD_OFF_6H                      000000FF
 _WRTD_ON_6H                       0000007F
 _XINST_OFF_4L                     000000BF
-MPASM 5.87                      CONTADOR.ASM   1-26-2021  13:53:38         PAGE 20
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _XINST_ON_4L                      000000FF
 __18F4550                         00000001
 
 Errors   :     0
-Warnings :     7 reported,     0 suppressed
+Warnings :    25 reported,     0 suppressed
 Messages :     0 reported,     0 suppressed
 
 

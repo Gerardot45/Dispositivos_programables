@@ -1,4 +1,4 @@
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  1
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -19,113 +19,97 @@ Warning[205]: Found directive in column 1. (LIST)
                       01765         LIST
 Warning[205]: Found directive in column 1. (ORG)
                       00003 ORG         0    
-  0000000D            00004 Dat_1   equ     0x0D ;Dat_1 = registro 0D 
-  0000000E            00005 Dat_2   equ     0x0E ;Dat_2 = registro 0E
-  0000001D            00006 Dat_3   equ     0x1D
-  0000001E            00007 Dat_4   equ     0x1E
-  0000002D            00008 Dat_5   equ     0x2D
-  0000002E            00009 Dat_6   equ     0x2E
-  0000003D            00010 Dat_7   equ     0x3D
-  0000003E            00011 Dat_8   equ     0x3E
-  0000004D            00012 Dat_9   equ     0x4D
-  0000004E            00013 Dat_10  equ     0x4E
-                      00014         
-  0000000F            00015 Suma    equ     0x0F ;Suma = registro 0F
-  0000001F            00016 Resta   equ     0x1F 
-  0000002F            00017 And     equ     0x2f
-  0000003F            00018 Ior     equ     0x3f
-  0000004F            00019 Xor     equ     0x4f
-                      00020 
-                      00021 ;SUMA
+  0000000D            00004 Dato_1  equ     0x0D ;Dat_1 = registro 0D 
+  0000000E            00005 Dato_2  equ     0x0E ;Dat_2 = registro 0E
+                      00006 
+                      00007         
+  0000000F            00008 resultado       equ     0x0F ;Suma = registro 0F
+                      00009 
+                      00010 
+                      00011 ;SUMA
 Warning[203]: Found opcode in column 1. (MOVLW)
-000000 0E8A           00022 MOVLW   0x8A
+000000 0E8A           00012 MOVLW   0x8A
 Warning[203]: Found opcode in column 1. (movwf)
-000002 6E0D           00023 movwf   Dat_1; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
+000002 6E0D           00013 movwf   Dato_1; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
 Warning[203]: Found opcode in column 1. (MOVLW)
-000004 0E57           00024 MOVLW   0x57
+000004 0E57           00014 MOVLW   0x57
 Warning[203]: Found opcode in column 1. (movwf)
-000006 6E0E           00025 movwf   Dat_2; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2        
+000006 6E0E           00015 movwf   Dato_2; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2       
 Warning[203]: Found opcode in column 1. (ADDWF)
-000008 240D           00026 ADDWF   Dat_1,0
+000008 240D           00016 ADDWF   Dato_1,0
 Warning[203]: Found opcode in column 1. (MOVWF)
-00000A 6E0F           00027 MOVWF   Suma ;Suma W con Dat_1 y lo guarda en W, posteriormente mueve W al registro                     
+00000A 6E0F           00017 MOVWF   resultado ;Suma W con Dat_1 y lo guarda en W, posteriormente mueve W al registro                
                                                                                                                             
-                      00028         
-                      00029         
-                      00030 ;RESTA
+                      00018         
+                      00019         
+                      00020 ;RESTA
 Warning[203]: Found opcode in column 1. (MOVLW)
-00000C 0E8A           00031 MOVLW   0x8A
+00000C 0E8A           00021 MOVLW   0x8A
 Warning[203]: Found opcode in column 1. (movwf)
-00000E 6E1D           00032 movwf   Dat_3; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  2
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
+00000E 6E0D           00022 movwf   Dato_1; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
 Warning[203]: Found opcode in column 1. (MOVLW)
-000010 0E57           00033 MOVLW   0x57
+000010 0E57           00023 MOVLW   0x57
 Warning[203]: Found opcode in column 1. (movwf)
-000012 6E1E           00034 movwf   Dat_4; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2        
+000012 6E0E           00024 movwf   Dato_2; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2       
 Warning[203]: Found opcode in column 1. (SUBWF)
-000014 5C1D           00035 SUBWF   Dat_3,0
+000014 5C0D           00025 SUBWF   Dato_1,0
 Warning[203]: Found opcode in column 1. (MOVWF)
-000016 6E1F           00036 MOVWF   Resta ;Resta W con Dat_1 y lo guarda en W, posteriormente mueve W al registro Resta
-                      00037         
-                      00038 ;AND
-Warning[203]: Found opcode in column 1. (MOVLW)
-000018 0E8A           00039 MOVLW   0x8A
-Warning[203]: Found opcode in column 1. (movwf)
-00001A 6E2D           00040 movwf   Dat_5; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
-Warning[203]: Found opcode in column 1. (MOVLW)
-00001C 0E57           00041 MOVLW   0x57
-Warning[203]: Found opcode in column 1. (movwf)
-00001E 6E2E           00042 movwf   Dat_6; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2        
-Warning[203]: Found opcode in column 1. (ANDWF)
-000020 142D           00043 ANDWF   Dat_5,0
-Warning[203]: Found opcode in column 1. (MOVWF)
-000022 6E2F           00044 MOVWF   And ;Realiza la operación lógica AND entre W y Dat_1 y lo guarda en W, posteriormente mueve W al
-                             registro And
-                      00045         
-                      00046 ;OR
-Warning[203]: Found opcode in column 1. (MOVLW)
-000024 0E8A           00047 MOVLW   0x8A
-Warning[203]: Found opcode in column 1. (movwf)
-000026 6E3D           00048 movwf   Dat_7; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
-Warning[203]: Found opcode in column 1. (MOVLW)
-000028 0E57           00049 MOVLW   0x57
-Warning[203]: Found opcode in column 1. (movwf)
-00002A 6E3E           00050 movwf   Dat_8; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2        
-Warning[203]: Found opcode in column 1. (IORWF)
-00002C 103D           00051 IORWF   Dat_7,0
-Warning[203]: Found opcode in column 1. (MOVWF)
-00002E 6E3F           00052 MOVWF   Ior ;Realiza la operación lógica AND entre W y Dat_1 y lo guarda en W, posteriormente mueve W al
-                             registro And
-                      00053         
-                      00054 ;XOR
-Warning[203]: Found opcode in column 1. (MOVLW)
-000030 0E8A           00055 MOVLW   0x8A
-Warning[203]: Found opcode in column 1. (movwf)
-000032 6E4D           00056 movwf   Dat_9; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
-Warning[203]: Found opcode in column 1. (MOVLW)
-000034 0E57           00057 MOVLW   0x57
-Warning[203]: Found opcode in column 1. (movwf)
-000036 6E4E           00058 movwf   Dat_10; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2       
-Warning[203]: Found opcode in column 1. (XORWF)
-000038 184D           00059 XORWF   Dat_9,0
-Warning[203]: Found opcode in column 1. (MOVWF)
-00003A 6E4F           00060 MOVWF   Xor ;Realiza la operación lógica AND entre W y Dat_1 y lo guarda en W, posteriormente mueve W al
-                             registro And   
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  3
+000016 6E0F           00026 MOVWF   resultado ;Resta W con Dat_1 y lo guarda en W, posteriormente mueve W al registro Resta
+                      00027         
+                      00028 ;AND
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00061         
+Warning[203]: Found opcode in column 1. (MOVLW)
+000018 0E8A           00029 MOVLW   0x8A
+Warning[203]: Found opcode in column 1. (movwf)
+00001A 6E0D           00030 movwf   Dato_1; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
+Warning[203]: Found opcode in column 1. (MOVLW)
+00001C 0E57           00031 MOVLW   0x57
+Warning[203]: Found opcode in column 1. (movwf)
+00001E 6E0E           00032 movwf   Dato_2; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2       
+Warning[203]: Found opcode in column 1. (ANDWF)
+000020 140D           00033 ANDWF   Dato_1,0
+Warning[203]: Found opcode in column 1. (MOVWF)
+000022 6E0F           00034 MOVWF   resultado ;Realiza la operación lógica AND entre W y Dat_1 y lo guarda en W, posteriormente muev
+                            e W al registro And
+                      00035         
+                      00036 ;OR
+Warning[203]: Found opcode in column 1. (MOVLW)
+000024 0E8A           00037 MOVLW   0x8A
+Warning[203]: Found opcode in column 1. (movwf)
+000026 6E0D           00038 movwf   Dato_1; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
+Warning[203]: Found opcode in column 1. (MOVLW)
+000028 0E57           00039 MOVLW   0x57
+Warning[203]: Found opcode in column 1. (movwf)
+00002A 6E0E           00040 movwf   Dato_2; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2       
+Warning[203]: Found opcode in column 1. (IORWF)
+00002C 100D           00041 IORWF   Dato_1,0
+Warning[203]: Found opcode in column 1. (MOVWF)
+00002E 6E0F           00042 MOVWF   resultado ;Realiza la operación lógica AND entre W y Dat_1 y lo guarda en W, posteriormente muev
+                            e W al registro And
+                      00043         
+                      00044 ;XOR
+Warning[203]: Found opcode in column 1. (MOVLW)
+000030 0E8A           00045 MOVLW   0x8A
+Warning[203]: Found opcode in column 1. (movwf)
+000032 6E0D           00046 movwf   Dato_1; Mueve la constante 57 HEX a W y enseguida mueve W a Dat_1
+Warning[203]: Found opcode in column 1. (MOVLW)
+000034 0E57           00047 MOVLW   0x57
+Warning[203]: Found opcode in column 1. (movwf)
+000036 6E0E           00048 movwf   Dato_2; Mueve la constante 8A HEX a W y enseguida mueve W a Dat_2       
+Warning[203]: Found opcode in column 1. (XORWF)
+000038 180D           00049 XORWF   Dato_1,0
+Warning[203]: Found opcode in column 1. (MOVWF)
+00003A 6E0F           00050 MOVWF   resultado ;Realiza la operación lógica AND entre W y Dat_1 y lo guarda en W, posteriormente muev
+                            e W al registro And     
+                      00051         
 Warning[205]: Found directive in column 1. (END)
-                      00062 END
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  4
+                      00052 END
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE  3
 
 
 SYMBOL TABLE
@@ -171,7 +155,6 @@ AN1                               00000001
 AN2                               00000002
 AN3                               00000003
 AN4                               00000005
-And                               0000002F
 BANKED                            00000001
 BAUDCON                           00000FB8
 BAUDCTL                           00000FB8
@@ -184,13 +167,13 @@ BOR                               00000000
 BRG16                             00000003
 BRGH                              00000002
 BSR                               00000FE0
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  5
+BTOEE                             00000004
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE  4
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-BTOEE                             00000004
 BTOEF                             00000004
 BTSEE                             00000007
 BTSEF                             00000007
@@ -243,13 +226,13 @@ CM1                               00000001
 CM2                               00000002
 CMCON                             00000FB4
 CMIE                              00000006
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  6
+CMIF                              00000006
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE  5
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-CMIF                              00000006
 CMIP                              00000006
 CRC16EE                           00000002
 CRC16EF                           00000002
@@ -286,28 +269,14 @@ DIR                               00000002
 DONE                              00000001
 D_A                               00000005
 D_NOT_A                           00000005
-Dat_1                             0000000D
-Dat_10                            0000004E
-Dat_2                             0000000E
-Dat_3                             0000001D
-Dat_4                             0000001E
-Dat_5                             0000002D
-Dat_6                             0000002E
-Dat_7                             0000003D
-Dat_8                             0000003E
-Dat_9                             0000004D
+Dato_1                            0000000D
+Dato_2                            0000000E
 ECCP1AS                           00000FB6
 ECCP1CON                          00000FBD
 ECCP1DEL                          00000FB7
 ECCPAS0                           00000004
 ECCPAS1                           00000005
 ECCPAS2                           00000006
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  7
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 ECCPASE                           00000007
 EEADR                             00000FA9
 EECON1                            00000FA6
@@ -317,6 +286,12 @@ EEIE                              00000004
 EEIF                              00000004
 EEIP                              00000004
 EEPGD                             00000007
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 ENDP0                             00000003
 ENDP1                             00000004
 ENDP2                             00000005
@@ -361,12 +336,6 @@ GO_DONE                           00000001
 GO_NOT_DONE                       00000001
 HLVDCON                           00000FD2
 HLVDEN                            00000004
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  8
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 HLVDIE                            00000002
 HLVDIF                            00000002
 HLVDIN                            00000005
@@ -376,6 +345,12 @@ HLVDL1                            00000001
 HLVDL2                            00000002
 HLVDL3                            00000003
 I2C_DAT                           00000005
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 I2C_READ                          00000002
 I2C_START                         00000003
 I2C_STOP                          00000004
@@ -420,13 +395,6 @@ IRCF1                             00000005
 IRCF2                             00000006
 IRVST                             00000005
 IVRST                             00000005
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE  9
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
-Ior                               0000003F
 LATA                              00000F89
 LATA0                             00000000
 LATA1                             00000001
@@ -436,6 +404,12 @@ LATA4                             00000004
 LATA5                             00000005
 LATA6                             00000006
 LATB                              00000F8A
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 LATB0                             00000000
 LATB1                             00000001
 LATB2                             00000002
@@ -479,12 +453,6 @@ LVV2                              00000002
 LVV3                              00000003
 N                                 00000004
 NOT_A                             00000005
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 10
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 NOT_ADDRESS                       00000005
 NOT_BOR                           00000000
 NOT_DONE                          00000001
@@ -495,6 +463,12 @@ NOT_RBPU                          00000007
 NOT_RI                            00000004
 NOT_T1SYNC                        00000002
 NOT_T3SYNC                        00000002
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 NOT_TO                            00000003
 NOT_W                             00000002
 NOT_WRITE                         00000002
@@ -538,12 +512,6 @@ PIDEE                             00000000
 PIDEF                             00000000
 PIE1                              00000F9D
 PIE2                              00000FA0
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 11
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 PIR1                              00000F9E
 PIR2                              00000FA1
 PKTDIS                            00000004
@@ -554,6 +522,12 @@ POR                               00000001
 PORTA                             00000F80
 PORTB                             00000F81
 PORTC                             00000F82
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 PORTD                             00000F83
 PORTE                             00000F84
 POSTDEC0                          00000FED
@@ -597,12 +571,6 @@ RB6                               00000006
 RB7                               00000007
 RBIE                              00000003
 RBIF                              00000000
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 12
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 RBIP                              00000000
 RBPU                              00000007
 RC0                               00000000
@@ -613,6 +581,12 @@ RC5                               00000005
 RC6                               00000006
 RC7                               00000007
 RCEN                              00000003
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 RCIDL                             00000006
 RCIE                              00000005
 RCIF                              00000005
@@ -647,7 +621,6 @@ RX9D                              00000000
 RXDTP                             00000005
 R_NOT_W                           00000002
 R_W                               00000002
-Resta                             0000001F
 S                                 00000003
 SBOREN                            00000006
 SCKP                              00000004
@@ -656,12 +629,6 @@ SCS1                              00000001
 SE0                               00000005
 SEN                               00000000
 SENDB                             00000003
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 13
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 SMP                               00000007
 SOFIE                             00000006
 SOFIF                             00000006
@@ -673,6 +640,12 @@ SPP1                              00000001
 SPP2                              00000002
 SPP3                              00000003
 SPP4                              00000004
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 12
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 SPP5                              00000005
 SPP6                              00000006
 SPP7                              00000007
@@ -715,15 +688,8 @@ STKPTR4                           00000004
 STKUNF                            00000006
 SUSPND                            00000001
 SWDTE                             00000000
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 14
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 SWDTEN                            00000000
 SYNC                              00000004
-Suma                              0000000F
 T08BIT                            00000006
 T0CKI                             00000004
 T0CON                             00000FD5
@@ -733,6 +699,12 @@ T0IF                              00000002
 T0IP                              00000002
 T0PS0                             00000000
 T0PS1                             00000001
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 T0PS2                             00000002
 T0SE                              00000004
 T13CKI                            00000000
@@ -774,12 +746,6 @@ TMR1                              00000FCE
 TMR1CS                            00000001
 TMR1H                             00000FCF
 TMR1IE                            00000000
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 15
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TMR1IF                            00000000
 TMR1IP                            00000000
 TMR1L                             00000FCE
@@ -792,6 +758,12 @@ TMR2ON                            00000002
 TMR3                              00000FB2
 TMR3CS                            00000001
 TMR3H                             00000FB3
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TMR3IE                            00000001
 TMR3IF                            00000001
 TMR3IP                            00000001
@@ -833,12 +805,6 @@ TRISD                             00000F95
 TRISD0                            00000000
 TRISD1                            00000001
 TRISD2                            00000002
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 16
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TRISD3                            00000003
 TRISD4                            00000004
 TRISD5                            00000005
@@ -851,6 +817,12 @@ TRISE2                            00000002
 TRMT                              00000001
 TRNIE                             00000003
 TRNIF                             00000003
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TUN0                              00000000
 TUN1                              00000001
 TUN2                              00000002
@@ -892,12 +864,6 @@ UERRIE                            00000001
 UERRIF                            00000001
 UFRM                              00000F66
 UFRMH                             00000F67
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 17
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 UFRML                             00000F66
 UIE                               00000F69
 UIR                               00000F68
@@ -910,6 +876,12 @@ USBIE                             00000005
 USBIF                             00000005
 USBIP                             00000005
 USTAT                             00000F6C
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 UTEYE                             00000007
 UTRDIS                            00000003
 VCFG0                             00000004
@@ -930,7 +902,6 @@ WS1                               00000001
 WS2                               00000002
 WS3                               00000003
 WUE                               00000001
-Xor                               0000004F
 Z                                 00000002
 _BORV_0_2L                        000000E7
 _BORV_1_2L                        000000EF
@@ -951,12 +922,6 @@ _CONFIG4L                         00300006
 _CONFIG5H                         00300009
 _CONFIG5L                         00300008
 _CONFIG6H                         0030000B
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 18
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _CONFIG6L                         0030000A
 _CONFIG7H                         0030000D
 _CONFIG7L                         0030000C
@@ -970,6 +935,12 @@ _CP3_OFF_5L                       000000FF
 _CP3_ON_5L                        000000F7
 _CPB_OFF_5H                       000000FF
 _CPB_ON_5H                        000000BF
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _CPD_OFF_5H                       000000FF
 _CPD_ON_5H                        0000007F
 _CPUDIV_OSC1_PLL2_1L              000000E7
@@ -1010,12 +981,6 @@ _IDLOC0                           00200000
 _IDLOC1                           00200001
 _IDLOC2                           00200002
 _IDLOC3                           00200003
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 19
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _IDLOC4                           00200004
 _IDLOC5                           00200005
 _IDLOC6                           00200006
@@ -1029,6 +994,12 @@ _LVP_ON_4L                        000000FF
 _MCLRE_OFF_3H                     0000007F
 _MCLRE_ON_3H                      000000FF
 _PBADEN_OFF_3H                    000000FD
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _PBADEN_ON_3H                     000000FF
 _PLLDIV_10_1L                     000000FE
 _PLLDIV_12_1L                     000000FF
@@ -1069,12 +1040,6 @@ _WRT0_ON_6L                       000000FE
 _WRT1_OFF_6L                      000000FF
 _WRT1_ON_6L                       000000FD
 _WRT2_OFF_6L                      000000FF
-MPASM 5.87                          SUMA.ASM   1-18-2021  14:21:50         PAGE 20
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _WRT2_ON_6L                       000000FB
 _WRT3_OFF_6L                      000000FF
 _WRT3_ON_6L                       000000F7
@@ -1087,6 +1052,13 @@ _WRTD_ON_6H                       0000007F
 _XINST_OFF_4L                     000000BF
 _XINST_ON_4L                      000000FF
 __18F4550                         00000001
+resultado                         0000000F
+MPASM 5.87                          SUMA.ASM   1-21-2021  20:44:03         PAGE 19
+
+
+
+
+
 
 Errors   :     0
 Warnings :    33 reported,     0 suppressed
